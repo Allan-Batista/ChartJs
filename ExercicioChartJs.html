@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercicio ChartJs</title>
+
+  <link rel="stylesheet" href="exercicio.css" />
+
+  <!-- Da acesso a lib -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+
+  <div class="header">
+    <div class="container">
+      <h1>Media <span class="highlight">Salarial</span> dos Brasileiros</h1>
+    </div>
+  </div>
+
+  <div class="dash-container">
+    <!-- Farol de temperatura -->
+    <div class="graph1">
+
+      <div class="box red">
+
+      </div>
+
+      <div class="box yellow">
+
+      </div>
+
+      <div class="box green">
+
+      </div>
+
+    </div>
+
+
+    <!-- Gráfico de Linhas -->
+    <div class="graph">
+      <canvas id="chartLine" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <!-- Gráfico de Barras -->
+    <div class="graph">
+      <canvas id="ax_chartLine" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+
+    <!-- Grafico Pizza -->
+    <div class="graph">
+
+      <canvas id="az_chartLine" style="width: 100%; height: 100%;"></canvas>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  var ctx = document.getElementById('ax_chartLine').getContext('2d');
+
+  var rotulos = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: rotulos,
+      datasets: [{
+        label: 'Salário Minimo',
+        data: [540, 622, 678, 724, 788, 880, 937, 954, 998, 1045, 1100],
+        backgroundColor: [
+          '#ff0000',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          '#000000',
+          '#7fffd4',
+          'black',
+          'Yellow',
+          'purple'
+        ],
+        borderColor: [
+          '#ff0000',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          '#000000',
+          '#7fffd4',
+          'black',
+          'Yellow',
+          'purple'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  });
+
+</script>
+
+<script>
+  var ctx = document.getElementById('chartLine').getContext('2d');
+
+  var rotulos = ['Norte', 'Nordeste', 'Sudeste', 'Sul', 'Centro-Oeste',]
+
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: rotulos,
+      datasets: [{
+        label: 'Média de Salario por Região',
+        data: [1.711, 1.539, 2.585, 2.499, 2.498,],
+        backgroundColor: [
+          '#ff0000',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+
+  var ctx = document.getElementById('az_chartLine').getContext('2d');
+
+  var rotulos = ['Brasil(total)', 'Norte', 'Nordeste', 'Sudeste', 'Sul', 'Centro-Oeste']
+
+  var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: rotulos,
+      datasets: [{
+        label: 'Teste ChartJs',
+        data: [11, 10.6, 13.6, 11.4, 6.8, 9.3],
+        backgroundColor: [
+          'Yellow',
+          'purple',
+          'rgba(255, 206, 86, 0.2)',
+          '#222222',
+          '#7fffd4',
+          'black',
+
+
+        ],
+        borderColor: [
+          'Yellow',
+          'purple',
+          'rgba(255, 206, 86, 0.2)',
+          '#000000',
+          '#7fffd4',
+          'black'
+        ],
+        borderWidth: 1
+
+
+      }]
+    },
+    options: {
+      responsive: false,
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  });
+
+</script>
